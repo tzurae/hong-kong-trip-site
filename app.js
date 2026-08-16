@@ -14,9 +14,86 @@ const photos = {
   tram: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/Chun_Yeung_Street%2C_Tram_140_%28Hong_Kong%29.jpg/960px-Chun_Yeung_Street%2C_Tram_140_%28Hong_Kong%29.jpg"
 };
 
+const priceGuide = {
+  hkg: "機場免費進入；餐飲可抓 HK$50–150／人",
+  regal: "房價依 8/27 訂單與房型浮動；以已訂價格為準",
+  we: "房價依 8/28–8/31 訂單與房型浮動；以已訂價格為準",
+  yuan: "依預約套餐／帳單；出發前把訂位價格補進備忘錄",
+  taiKwun: "園區免費；特展、表演與工作坊可能另收費",
+  pmq: "入場免費；設計店購物與活動另計",
+  cheung: "HK$50–100／人（Google 使用者回報價格帶）",
+  taiCheong: "HK$1–50／人（蛋撻與餅點價格帶）",
+  centralMarket: "入場免費；餐飲與購物另計",
+  tsimChai: "HK$50–100／人（Google 使用者回報價格帶）",
+  ifc: "商場免費進入；餐飲與購物另計",
+  pier7: "成人 HK$4–6.5；上下層與平假日不同",
+  avenue: "免費",
+  london: "HK$100–150／人（Google 使用者回報價格帶）",
+  shamShuiPo: "街區免費；小吃與購物另計",
+  kungWo: "小吃約 HK$20–50／人",
+  mplus: "成人 HK$190；特惠 HK$100；部分公共空間免費",
+  hingKee: "HK$50–150／人（Google 使用者回報價格帶）",
+  taoHeung: "約 HK$50–350／人，視點心、海鮮與人數差異",
+  oi: "免費",
+  chunYeung: "市場免費；叮叮車車資另計",
+  roganic: "約 HK$500 以上／人；酒水另計（Google 價格帶）",
+  causeway: "散步免費；購物與咖啡另計",
+  peak: "纜車來回 HK$116；纜車＋摩天台來回套票 HK$182",
+  congee: "約 HK$50–100／人",
+  hkStation: "香港站至機場：八達通 HK$120；QR／車票 HK$130"
+};
+
+const reviewHighlights = {
+  taiKwun: {
+    risk: "一星內容本身資訊量偏低，主要反映沒有完整參觀；不要只看單一極端評分。",
+    low: { author: "Boombala Man", when: "1 年前", quote: "沒有參觀整個大館，只是跟從學校老師前往參觀。" },
+    high: { author: "KAO cindy", when: "1 個月前", quote: "身為路癡的我，竟然在裡面繞了很久。" }
+  },
+  pmq: {
+    risk: "低分常見落差是店舖少、人流低；它比較像 45 分鐘的順路設計站，不是大型商場。",
+    low: { author: "Henry Chow", when: "2 年前", quote: "基本上冇乜人行，冇乜嘢賣，人流極少。" },
+    high: { author: "DIK KAR NG", when: "1 個月前", quote: "以工作坊形式過來，感覺完全不同。" }
+  },
+  cheung: {
+    risk: "最低星評論的文字仍稱讚生煎包，星等與內文並不一致；比起單一一星，更該留意排隊與油膩感。",
+    low: { author: "wai fun leung", when: "7 個月前", quote: "生煎包係好食。" },
+    high: { author: "M J", when: "4 個月前", quote: "生煎包底部金黃焦香，內餡多汁美味。" }
+  },
+  london: {
+    risk: "負評集中在服務態度、點心新鮮度與價格溝通；把期待放在推車茶樓體驗，不要把它當精緻餐廳。",
+    low: { author: "Nana Pun", when: "6 個月前", quote: "嘢食唔新鮮，小籠包個皮好厚。" },
+    high: { author: "黃柏容", when: "1 個月前", quote: "保留了香港傳統推車點心的特色。" }
+  },
+  kungWo: {
+    risk: "低分主要在服務態度，不是豆品本身；尖峰時段要有快速點餐、不期待招呼的心理準備。",
+    low: { author: "Gary Lam", when: "4 個月前", quote: "呢一星係俾佢嘅服務態度。" },
+    high: { author: "林宜諠", when: "1 年前", quote: "保留古早風味和堅持自家製造。" }
+  },
+  mplus: {
+    risk: "負評提到動線指示、QR 掃描與員工應對；先下載票券、截圖 QR，入館後先看樓層圖。",
+    low: { author: "Danny LO", when: "3 個月前", quote: "展品觀看的範圍指示不清楚，員工態度不好。" },
+    high: { author: "NicoleHeiTong", when: "2 個月前", quote: "亞洲首間全球性當代視覺文化博物館。" }
+  },
+  taoHeung: {
+    risk: "低分案例集中在海鮮熟度與客訴處理；它只當多人臨時備案，點心比高價海鮮穩妥。",
+    low: { author: "NT YaYa", when: "9 個月前", quote: "蟹腳 overcooked，蟹身就未熟晒。" },
+    high: { author: "Livio Lam", when: "1 年前", quote: "本身對稻香冇乜預期，意外地好食。" }
+  },
+  oi: {
+    risk: "負評多半針對個別導賞互動；自由參觀受影響較小，遇到未開放作品不用硬等。",
+    low: { author: "au wai shing frankie", when: "近期", quote: "態度何其差！" },
+    high: { author: "Lin士之心", when: "5 個月前", quote: "環境優美，是市區中少有的休閒公共空間。" }
+  },
+  roganic: {
+    risk: "最需要注意的是酒水推銷與額外費用；點餐前直接確認套餐包含項目、茶水與無酒精飲品價格。",
+    low: { author: "Ka Wing", when: "11 個月前", quote: "hard sell 飲嘢，好令人反感。" },
+    high: { author: "Diana", when: "8 個月前", quote: "搬到 Lee Garden One 令人耳目一新。" }
+  }
+};
+
 const places = {
   hkg: { name: "香港國際機場", query: "Hong Kong International Airport", history: "赤鱲角機場於 1998 年啟用，是這趟旅程的交通節點，不是要硬塞進第一天的景點。", why: "落地後把通關、行李和睡眠處理好，會比第一晚趕進市區更不容易把後面四天玩壞。", photo: photos.hongKong, source: "https://www.hongkongairport.com/" },
-  regal: { name: "富豪機場酒店", query: "Regal Airport Hotel Hong Kong", rating: "4.0", reviews: "6,439", history: "酒店與機場客運大樓相連，適合晚班抵達後直接休息。", why: "第一晚不必拖行李轉車，隔天睡飽再進市區，是這個安排最實際的價值。", photo: photos.hongKong, source: "https://www.regalhotel.com/en/regal-airport-hotel" },
+  regal: { name: "富豪機場酒店", query: "Regal Airport Hotel Hong Kong", rating: "4.0", reviews: "6,440", history: "酒店與機場客運大樓相連，適合晚班抵達後直接休息。", why: "第一晚不必拖行李轉車，隔天睡飽再進市區，是這個安排最實際的價值。", photo: photos.hongKong, source: "https://www.regalhotel.com/en/regal-airport-hotel" },
   we: { name: "伯惠酒店 WE Hotel", query: "WE Hotel Hong Kong Sai Ying Pun", rating: "4.5", reviews: "189", history: "位在西營盤東邊街，靠近港鐵與港島西側舊街區。", why: "先寄行李再走中環，不會拖著行李爬坡；後續回飯店也比住九龍更順。", photo: photos.hongKong, source: mapSearch("WE Hotel Hong Kong Sai Ying Pun") },
   yuan: { name: "Yuan 蔬食午餐", query: "Yuan Hong Kong vegetarian restaurant", history: "這站是已排定的預約午餐；網站沒有硬填查不到的 Google 分數。", why: "先用一頓坐得下來的午餐進入旅行節奏，再開始中環步行線，體力比較穩。", photo: photos.hongKong, source: mapSearch("Yuan Hong Kong vegetarian restaurant") },
   taiKwun: { name: "大館 Tai Kwun", query: "Tai Kwun Hong Kong", rating: "4.4", reviews: "13,788", friend: true, history: "大館由前中區警署、中央裁判司署與域多利監獄組成，活化後在 2018 年對外開放。", why: "它不是單一打卡建築，而是能把香港殖民時期司法、警政與當代藝術放在同一個場域理解。", photo: photos.taiKwun, source: "https://www.taikwun.hk/en/taikwun/about/heritage" },
@@ -89,7 +166,7 @@ const days = [
 ];
 
 const modeCopy = {
-  normal: { label: "正常行程", description: "照順路版本走；每一段交通時間都標在兩站之間。", note: "評分為 2026/8/16 查閱 Google Maps，之後可能變動。", icon: "☀" },
+  normal: { label: "正常行程", description: "照順路版本走；每一段交通時間都標在兩站之間。", note: "評分為 2026/8/17 查閱 Google Maps，之後可能變動。", icon: "☀" },
   heat: { label: "太熱模式", description: "砍掉 12:00–16:00 的長距離戶外段，跨區改 Taxi，保留室內主體。", note: "被刪掉的不是換個名字而已；街區、渡輪與 Peak 會實際退出行程。", icon: "◌" },
   rain: { label: "下雨模式", description: "保留有蓋與室內點，取消長走、海旁與市場；點到點改 MTR／Taxi。", note: "短暫陣雨可現場切回正常；持續大雨就照這版走。", icon: "☂" },
   severe: { label: "惡劣天氣", description: "景點全部不是必需品；只看航班、HKO、MTR 與場館官方狀態。", note: "颱風或黑雨期間不跨區、不追訂位，留在最近安全室內地點。", icon: "!" }
@@ -107,7 +184,7 @@ function cloneStops(dayIndex, ids, mode) {
   const source = days[dayIndex].items;
   return ids.map((id, index) => {
     const original = source.find((item) => item.id === id);
-    const item = { ...original, tag: mode === "heat" ? "太熱保留" : "雨天保留" };
+    const item = { ...original };
     if (index > 0) {
       const previous = places[ids[index - 1]];
       const current = places[id];
@@ -138,19 +215,51 @@ const agendaList = document.querySelector("#agenda-list");
 let activeDay = 1;
 let activeMode = "normal";
 
-function renderDetails(place) {
+const iconPaths = {
+  history: '<path d="M4 19h16M6 16V9m4 7V9m4 7V9m4 7V9M3 7l9-4 9 4H3Z"/>',
+  reason: '<path d="m12 3 1.7 4.2L18 9l-4.3 1.8L12 15l-1.7-4.2L6 9l4.3-1.8L12 3Z"/><path d="m5 15 .8 2.2L8 18l-2.2.8L5 21l-.8-2.2L2 18l2.2-.8L5 15Z"/>',
+  price: '<circle cx="12" cy="12" r="9"/><path d="M15 8.5c-.7-.7-1.7-1-3-1-1.7 0-3 .8-3 2s1.1 1.8 3 2.2 3 1 3 2.3-1.3 2.2-3 2.2c-1.2 0-2.3-.4-3-1.2M12 5.5v13"/>',
+  map: '<path d="m9 18-6 3V6l6-3 6 3 6-3v15l-6 3-6-3Z"/><path d="M9 3v15m6-12v15"/>',
+  review: '<path d="M4 5h16v11H8l-4 4V5Z"/><path d="m12 8 .8 1.7 1.9.2-1.4 1.3.4 1.8-1.7-.9-1.7.9.4-1.8-1.4-1.3 1.9-.2L12 8Z"/>'
+};
+
+function infoIcon(name) {
+  return `<span class="info-icon info-icon-${name}" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">${iconPaths[name]}</svg></span>`;
+}
+
+function infoBlock(type, title, body, extra = "") {
+  return `<section class="info-block info-${type}">${infoIcon(type)}<div><h5>${title}</h5><p>${body}</p>${extra}</div></section>`;
+}
+
+function renderReviewCard(kind, review) {
+  const isLow = kind === "low";
+  return `<article class="review-card review-${kind}"><div class="review-score"><b>${isLow ? "1 星負評" : "5 星好評"}</b><span>${review.when}</span></div><blockquote>「${review.quote}」</blockquote><small>— ${review.author} · Google Maps</small></article>`;
+}
+
+function renderReviews(place, id) {
+  const reviews = reviewHighlights[id];
+  const reviewsUrl = mapSearch(place.query);
+  if (!reviews) {
+    return `<section class="google-review-section review-empty"><div class="review-section-title">${infoIcon("review")}<div><h5>Google 評論</h5><p>目前僅顯示總分；出發前請直接查看最新一星評論與近期評論。</p></div></div><a class="review-link" href="${reviewsUrl}" target="_blank" rel="noreferrer">查看 Google 全部評論 ↗</a></section>`;
+  }
+  return `<section class="google-review-section"><div class="review-section-title">${infoIcon("review")}<div><h5>Google 評論：先看風險</h5><p>${reviews.risk}</p></div></div><div class="review-grid">${renderReviewCard("low", reviews.low)}${renderReviewCard("high", reviews.high)}</div><a class="review-link" href="${reviewsUrl}" target="_blank" rel="noreferrer">查看 Google 全部評論與排序 ↗</a></section>`;
+}
+
+function renderDetails(place, id) {
   if (!place) return "";
-  const image = place.photo ? `<img class="stop-photo" src="${place.photo}" alt="${place.name}" loading="lazy" />` : "";
-  return `<details class="stop-details"><summary class="detail-toggle">DETAIL 詳情＋照片</summary><div class="stop-detail-panel">${image}<div class="stop-detail-copy"><h5>背景／歷史</h5><p>${place.history}</p><h5>為什麼值得去</h5><p>${place.why}</p><a class="source-link" href="${place.source}" target="_blank" rel="noreferrer">資料來源 ↗</a></div></div></details>`;
+  const image = place.photo ? `<figure class="stop-visual"><img class="stop-photo" src="${place.photo}" alt="${place.name}" loading="lazy" decoding="async" width="960" height="640" /><figcaption>圖片會在查看當天行程時預載；重訪由離線快取加速。</figcaption></figure>` : "";
+  const navigation = `<a class="detail-map-link" href="${mapSearch(place.query)}" target="_blank" rel="noreferrer">開啟 Google 地圖導航 ↗</a>`;
+  const info = `<div class="detail-info-grid">${infoBlock("history", "背景與歷史", place.history)}${infoBlock("reason", "推薦理由", place.why)}${infoBlock("price", "預算參考", priceGuide[id] || "依現場消費；出發前查看最新價目")}${infoBlock("map", "地圖導航", "直接開啟地點頁，出發當下再確認營業時間與即時路線。", navigation)}</div>`;
+  return `<details class="stop-details"><summary class="detail-toggle"><span>詳細介紹</span><b aria-hidden="true">＋</b></summary><div class="stop-detail-panel">${image}<div class="stop-detail-copy">${info}<a class="source-link" href="${place.source}" target="_blank" rel="noreferrer">背景資料來源 ↗</a></div>${renderReviews(place, id)}</div></details>`;
 }
 
 function renderStop(item) {
   const place = item.id ? places[item.id] : null;
-  const rating = place?.rating ? `<span class="rating-pill" title="2026/8/16 查閱"><b>★ ${place.rating}</b><span>${place.reviews} 則</span></span>` : "";
-  const map = place ? `<a class="map-link" href="${mapSearch(place.query)}" target="_blank" rel="noreferrer">Google Maps ↗</a>` : "";
-  const friend = place?.friend ? `<span class="friend-badge">CK 朋友推薦</span>` : "";
+  const rating = place?.rating ? `<span class="rating-pill" title="2026/8/17 查閱"><b>★ ${place.rating}</b><span>${place.reviews} 則</span></span>` : "";
+  const map = place ? `<a class="map-link" href="${mapSearch(place.query)}" target="_blank" rel="noreferrer">${infoIcon("map")}<span>地圖導航</span></a>` : "";
+  const friend = place?.friend ? `<span class="friend-badge">✦ CK 推薦</span>` : "";
   const meta = rating || friend ? `<div class="stop-meta">${rating}${friend}</div>` : "";
-  return `<article class="agenda-row agenda-${activeMode}"><time>${item.time}</time><div class="agenda-main"><div class="agenda-title"><div class="agenda-title-group"><h4>${item.title}</h4><span class="agenda-tag">${item.tag}</span></div></div><p>${item.detail}</p>${meta}<div class="stop-actions">${map}${renderDetails(place)}</div></div></article>`;
+  return `<article class="agenda-row agenda-${activeMode}"><time>${item.time}</time><div class="agenda-main"><div class="agenda-title"><h4>${item.title}</h4></div><p>${item.detail}</p>${meta}<div class="stop-actions">${map}${renderDetails(place, item.id)}</div></div></article>`;
 }
 
 function renderLeg(item) {
@@ -167,6 +276,21 @@ function renderDay(index) {
   agendaSummary.innerHTML = `<div><span class="agenda-date">${day.date} · ${mode.label}</span><h3>${day.title}</h3><p>${plan.note}</p><span class="route-verdict">${plan.routeVerdict}</span>${activeMode === "normal" && day.friendNote ? `<div class="friend-route-note"><strong>朋友推薦怎麼採用：</strong>${day.friendNote}</div>` : ""}</div><div class="route-summary"><span class="card-label">本模式路線</span><strong>${plan.route}</strong></div>`;
   agendaList.innerHTML = plan.items.map((item) => `${renderLeg(item)}${renderStop(item)}`).join("");
   document.querySelectorAll(".date-tab").forEach((tab) => tab.classList.toggle("active", Number(tab.dataset.day) === index));
+  preloadPlanPhotos(plan);
+}
+
+const preloadedPhotos = new Set();
+function preloadPlanPhotos(plan) {
+  const load = () => plan.items.forEach((item) => {
+    const url = places[item.id]?.photo;
+    if (!url || preloadedPhotos.has(url)) return;
+    preloadedPhotos.add(url);
+    const image = new Image();
+    image.decoding = "async";
+    image.src = url;
+  });
+  if (typeof requestIdleCallback === "function") requestIdleCallback(load);
+  else setTimeout(load, 0);
 }
 
 document.querySelectorAll(".date-tab").forEach((tab) => tab.addEventListener("click", () => renderDay(Number(tab.dataset.day))));
@@ -180,5 +304,9 @@ document.querySelectorAll(".mode-button").forEach((button) => button.addEventLis
   document.querySelector("#mode-note").textContent = mode.note;
   renderDay(activeDay);
 }));
+
+if (typeof navigator !== "undefined" && "serviceWorker" in navigator) {
+  navigator.serviceWorker.register("sw.js?v=11").catch(() => {});
+}
 
 renderDay(1);
