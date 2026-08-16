@@ -1,97 +1,79 @@
 <!doctype html>
-<html lang="en">
+<html lang="zh-Hant">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#f6f0e8" />
-    <meta name="description" content="A practical, offline-first Hong Kong travel companion." />
-    <title>Hong Kong · 27–31 Aug 2026</title>
+    <meta name="description" content="香港 2026 五日旅行行程：每日路線、時間、交通與雨天備案。" />
+    <title>香港 2026 · 五日行程</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
     <header class="topbar">
-      <a class="brand" href="#today" aria-label="Hong Kong trip home">HK<span>/</span>26</a>
-      <div class="trip-meta"><span>Hong Kong</span><span>27–31 AUG 2026</span></div>
-      <button class="menu-button" type="button" aria-label="Open navigation" aria-expanded="false">Menu</button>
+      <a class="brand" href="#today" aria-label="回到香港行程首頁">HK<span>/</span>26</a>
+      <div class="trip-meta"><span>香港五日行程</span><span>27–31 AUG 2026</span></div>
+      <a class="menu-button" href="#trip">看完整行程</a>
     </header>
 
     <main>
       <section class="hero section-shell" id="today">
-        <div class="eyebrow">TRIP COMPANION · DAY 2 OF 5</div>
+        <div class="eyebrow">HONG KONG · 27–31 AUG 2026</div>
         <div class="hero-grid">
           <div>
-            <p class="kicker">Today, Saturday 29 August</p>
-            <h1>See the city<br /><em>between</em> the plans.</h1>
-            <p class="hero-copy">A calm, flexible route through old neighbourhoods, contemporary art and the harbour — with a better next step when Hong Kong changes its mind.</p>
+            <p class="kicker">每天要做什麼，一眼看懂</p>
+            <h1>五天，<br /><em>慢慢</em>玩香港。</h1>
+            <p class="hero-copy">不是景點清單，而是可以直接照著走的每日行程：上午、午餐、下午、晚餐、交通與天氣備案都放在同一張卡裡。</p>
+            <a class="button button-dark hero-button" href="#trip">看每日行程 ↓</a>
           </div>
           <aside class="weather-card">
-            <div class="card-label">LIVE MODE</div>
-            <div class="weather-main"><span class="weather-icon">☀</span><strong id="mode-label">Normal</strong></div>
-            <p id="mode-description">Keep the standard route. Swap only when the city asks you to.</p>
-            <div class="mode-switcher" role="group" aria-label="Trip mode">
-              <button class="mode-button active" data-mode="normal" type="button">Normal</button>
-              <button class="mode-button" data-mode="heat" type="button">Heat</button>
-              <button class="mode-button" data-mode="rain" type="button">Rain</button>
-              <button class="mode-button" data-mode="severe" type="button">Severe</button>
+            <div class="card-label">今日行程模式 · 8/29</div>
+            <div class="weather-main"><span class="weather-icon">☀</span><strong id="mode-label">正常行程</strong></div>
+            <p id="mode-description">照標準路線：飲茶 → 深水埗 → M+ → 佐敦晚餐 → 天星小輪。</p>
+            <div class="mode-switcher" role="group" aria-label="天氣模式">
+              <button class="mode-button active" data-mode="normal" type="button">正常</button>
+              <button class="mode-button" data-mode="heat" type="button">太熱</button>
+              <button class="mode-button" data-mode="rain" type="button">下雨</button>
+              <button class="mode-button" data-mode="severe" type="button">惡劣天氣</button>
             </div>
+            <p class="mode-note" id="mode-note">固定錨點：M+ 15:00。可調整的是戶外散步與晚餐順序。</p>
           </aside>
         </div>
       </section>
 
-      <section class="next-section section-shell" aria-labelledby="next-heading">
-        <div class="section-heading"><div><div class="eyebrow">THE SHORT VERSION</div><h2 id="next-heading">Your next move</h2></div><span class="section-index">02 / 05</span></div>
-        <article class="next-card">
-          <div class="next-number">01</div>
-          <div class="next-content"><div class="card-label">UP NEXT · 15:00–18:30</div><h3 id="next-title">M+</h3><p id="next-copy">Three hours for design, contemporary art and the harbour light. Start with Design Ah!, then let the building pull you around.</p><div class="tag-row"><span>West Kowloon</span><span>3–3.5 hr</span><span>Indoor</span></div></div>
-          <div class="next-actions"><a class="button button-dark" href="https://www.google.com/maps/search/?api=1&query=M%2B+Museum+Drive+Hong+Kong" target="_blank" rel="noreferrer">Open maps ↗</a><button class="text-button" type="button" data-expand="detail-1">View details</button></div>
-        </article>
-        <article class="next-card after-card">
-          <div class="next-number">02</div>
-          <div class="next-content"><div class="card-label">AFTER THAT · DINNER</div><h3>Mak Man Kee</h3><p>Wonton noodles in Jordan. If the queue is over 30 minutes, switch to the nearby backup instead of sacrificing the evening.</p><div class="tag-row"><span>Primary</span><span>Jordan</span><span>Queue ≤ 30 min</span></div></div>
-          <div class="next-actions"><a class="button button-light" href="https://www.google.com/maps/search/?api=1&query=Mak+Man+Kee+Jordan+Hong+Kong" target="_blank" rel="noreferrer">Route ↗</a></div>
-        </article>
-        <div class="detail-panel" id="detail-1" hidden><div><span class="card-label">M+ MUST-SEE ROUTE</span><p>Design Ah! → Sigg Collection → Shanshui → Wael Shawky / Heri Dono → Dial-A-Poem.</p></div><div><span class="card-label">RAIN / HEAT RULE</span><p>Keep M+ as the anchor. Drop the waterfront walk first and take a taxi if the heat feels heavy.</p></div></div>
+      <section class="agenda-section section-shell" id="trip" aria-labelledby="agenda-heading">
+        <div class="section-heading agenda-heading"><div><div class="eyebrow">THE ACTUAL PLAN</div><h2 id="agenda-heading">每天要去哪裡</h2></div><span class="section-index">5 DAYS</span></div>
+        <div class="date-tabs" role="tablist" aria-label="選擇旅行日期">
+          <button class="date-tab" data-day="0" type="button"><span>8/27</span><strong>抵達</strong></button>
+          <button class="date-tab active" data-day="1" type="button"><span>8/28</span><strong>中環</strong></button>
+          <button class="date-tab" data-day="2" type="button"><span>8/29</span><strong>九龍 × 藝術</strong></button>
+          <button class="date-tab" data-day="3" type="button"><span>8/30</span><strong>北角 × 午餐</strong></button>
+          <button class="date-tab" data-day="4" type="button"><span>8/31</span><strong>回台</strong></button>
+        </div>
+        <div class="agenda-summary" id="agenda-summary"></div>
+        <div class="agenda-list" id="agenda-list"></div>
       </section>
 
-      <section class="today-section section-shell" id="trip" aria-labelledby="today-heading">
-        <div class="section-heading"><div><div class="eyebrow">THE FULL DAY</div><h2 id="today-heading">Saturday, in blocks</h2></div><button class="text-button" type="button" id="timeline-toggle">Show timeline +</button></div>
-        <div class="timeline" id="timeline" hidden>
-          <div class="timeline-row"><time>09:00</time><strong>Lin Heung Tea House</strong><span>Traditional dim sum, pushed carts and no over-planning.</span></div>
-          <div class="timeline-row"><time>10:45</time><strong>Sham Shui Po</strong><span>Apliu Street → Tai Nan Street → small shops and old neighbourhood texture.</span></div>
-          <div class="timeline-row"><time>12:30</time><strong>Kung Wo Beancurd</strong><span>豆腐花, soy milk and a light lunch rather than another full meal.</span></div>
-          <div class="timeline-row"><time>15:00</time><strong>M+</strong><span>Give the museum 3–3.5 hours. The late Saturday opening gives you room.</span></div>
-          <div class="timeline-row"><time>20:30</time><strong>Star Ferry</strong><span>Tsim Sha Tsui → Central. Let the harbour be the ending.</span></div>
-        </div>
-        <div class="day-grid">
-          <article class="day-block"><span class="day-marker">MORNING</span><h3>Tea, then texture</h3><p>Start with old-school dim sum before following the neighbourhood north. The point is not a checklist; it is the change in rhythm.</p><span class="block-foot">蓮香樓 · 深水埗</span></article>
-          <article class="day-block featured"><span class="day-marker">AFTERNOON</span><h3>M+ at its best</h3><p>Design, visual culture and a long view across the water. Keep this block protected from the weather.</p><span class="block-foot">West Kowloon · Indoor anchor</span></article>
-          <article class="day-block"><span class="day-marker">EVENING</span><h3>Noodles + skyline</h3><p>Dinner in Jordan, then take the ferry home. If the queue breaks the mood, use the backup.</p><span class="block-foot">Mak Man Kee · Star Ferry</span></article>
-        </div>
-      </section>
-
-      <section class="days-section section-shell" aria-labelledby="days-heading">
-        <div class="section-heading"><div><div class="eyebrow">THE WHOLE TRIP</div><h2 id="days-heading">Five days, lightly held</h2></div></div>
-        <div class="day-list">
-          <button class="day-list-item" type="button"><span>27 AUG</span><strong>Arrival / Airport sleep</strong><em>Regal Airport Hotel</em></button>
-          <button class="day-list-item selected" type="button"><span>28 AUG</span><strong>Old Hong Kong</strong><em>Yuan · PMQ · Tai Kwun · Peak</em></button>
-          <button class="day-list-item" type="button"><span>29 AUG</span><strong>Kowloon × Art</strong><em>Dim sum · Sham Shui Po · M+</em></button>
-          <button class="day-list-item" type="button"><span>30 AUG</span><strong>North Point × Food</strong><em>Oi! · Tram · Roganic · Peak retry</em></button>
-          <button class="day-list-item" type="button"><span>31 AUG</span><strong>Departure</strong><em>Airport Express · HX254</em></button>
+      <section class="trip-rules section-shell" aria-labelledby="rules-heading">
+        <div class="section-heading"><div><div class="eyebrow">HOW TO USE THIS PLAN</div><h2 id="rules-heading">三條現場規則</h2></div></div>
+        <div class="rules-grid">
+          <article><span>01</span><h3>有時間的才是固定</h3><p>航班、餐廳與 M+ 寫死時間；街區散步用區間，不需要一直追時鐘。</p></article>
+          <article><span>02</span><h3>排隊超過就換</h3><p>麥文記超過 30 分鐘、佳佳甜品超過 20 分鐘，直接用附近備案。</p></article>
+          <article><span>03</span><h3>Peak 看天氣再決定</h3><p>8/28 天氣好就上山；不好就把 Peak 移到 8/30 下午的 recovery slot。</p></article>
         </div>
       </section>
 
       <section class="info-section section-shell" id="info" aria-labelledby="info-heading">
-        <div class="section-heading"><div><div class="eyebrow">KEEP HANDY</div><h2 id="info-heading">Useful at street level</h2></div></div>
+        <div class="section-heading"><div><div class="eyebrow">KEEP HANDY</div><h2 id="info-heading">住哪裡、怎麼移動</h2></div></div>
         <div class="info-grid">
-          <article><span class="card-label">SLEEP</span><h3>WE Hotel</h3><p>11 Eastern Street, Sai Ying Pun. Ask for a high, quiet room away from the lift.</p><a href="https://www.google.com/maps/search/?api=1&query=WE+Hotel+11+Eastern+Street+Hong+Kong" target="_blank" rel="noreferrer">Open maps ↗</a></article>
-          <article><span class="card-label">GETTING AROUND</span><h3>Octopus first</h3><p>MTR, bus, tram and ferry. Taxi when the time difference matters more than the fare.</p><a href="https://www.mtr.com.hk/en/customer/main/index.html" target="_blank" rel="noreferrer">MTR map ↗</a></article>
-          <article><span class="card-label">FIXED ANCHORS</span><h3>Book these</h3><p>Yuan · Roganic · M+. Hold Peak for a reliable forecast and let the weather choose the day.</p><button class="text-button" type="button" id="checklist-toggle">Open checklist +</button></article>
+          <article><span class="card-label">8/27 · 第一晚</span><h3>Regal Airport Hotel</h3><p>落地後直接睡，隔天 10:00 checkout。不要把第一晚排成景點日。</p><a href="https://www.google.com/maps/search/?api=1&query=Regal+Airport+Hotel+Hong+Kong" target="_blank" rel="noreferrer">地圖 ↗</a></article>
+          <article><span class="card-label">8/28–8/31 · 市區</span><h3>WE Hotel</h3><p>11 Eastern Street, Sai Ying Pun。訂房備註：high floor、quiet room、away from lift。</p><a href="https://www.google.com/maps/search/?api=1&query=WE+Hotel+11+Eastern+Street+Hong+Kong" target="_blank" rel="noreferrer">地圖 ↗</a></article>
+          <article><span class="card-label">GETTING AROUND</span><h3>Octopus 優先</h3><p>MTR、巴士、叮叮車、天星小輪都用 Octopus；拖行李或跨區時間差不值得時搭 Taxi。</p><a href="https://www.mtr.com.hk/en/customer/main/index.html" target="_blank" rel="noreferrer">MTR ↗</a></article>
         </div>
-        <div class="checklist" id="checklist" hidden><label><input type="checkbox" /> Book Roganic · 30 Aug, 12:00</label><label><input type="checkbox" /> Book Yuan · 28 Aug, 12:00</label><label><input type="checkbox" /> Buy M+ tickets</label><label><input type="checkbox" /> Set up two Octopus cards</label><label><input type="checkbox" /> Check HKO forecast before Peak</label></div>
+        <div class="checklist-box"><strong>出發前固定事項</strong><span>Roganic 8/30 12:00 · Yuan 8/28 12:00 · M+ 門票 · 兩張 Octopus · Peak 等預報</span></div>
       </section>
     </main>
 
-    <nav class="bottom-nav" aria-label="Primary navigation"><a class="active" href="#today">Today</a><a href="#trip">Trip</a><a href="#info">Info</a><a href="https://www.google.com/maps" target="_blank" rel="noreferrer">Maps ↗</a></nav>
+    <nav class="bottom-nav" aria-label="主要導覽"><a class="active" href="#today">首頁</a><a href="#trip">每日行程</a><a href="#info">住宿交通</a><a href="https://www.google.com/maps" target="_blank" rel="noreferrer">Maps ↗</a></nav>
     <script src="app.js"></script>
   </body>
 </html>
