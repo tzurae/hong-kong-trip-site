@@ -149,13 +149,14 @@ function renderStop(item) {
   const rating = place?.rating ? `<span class="rating-pill" title="2026/8/16 查閱"><b>★ ${place.rating}</b><span>${place.reviews} 則</span></span>` : "";
   const map = place ? `<a class="map-link" href="${mapSearch(place.query)}" target="_blank" rel="noreferrer">Google Maps ↗</a>` : "";
   const friend = place?.friend ? `<span class="friend-badge">CK 朋友推薦</span>` : "";
-  return `<article class="agenda-row agenda-${activeMode}"><time>${item.time}</time><div class="agenda-main"><div class="agenda-title"><div class="agenda-title-group"><h4>${item.title}</h4><span class="agenda-tag">${item.tag}</span></div>${rating}</div><p>${item.detail}</p><div class="stop-actions">${map}${friend}${renderDetails(place)}</div></div></article>`;
+  const meta = rating || friend ? `<div class="stop-meta">${rating}${friend}</div>` : "";
+  return `<article class="agenda-row agenda-${activeMode}"><time>${item.time}</time><div class="agenda-main"><div class="agenda-title"><div class="agenda-title-group"><h4>${item.title}</h4><span class="agenda-tag">${item.tag}</span></div></div><p>${item.detail}</p>${meta}<div class="stop-actions">${map}${renderDetails(place)}</div></div></article>`;
 }
 
 function renderLeg(item) {
   if (!item.leg) return "";
-  const icon = item.leg.label.includes("步行") ? "↟" : item.leg.label.includes("Taxi") ? "▰" : "↔";
-  return `<div class="transfer-row"><span class="transfer-icon">${icon}</span><span><strong>${item.leg.label} · ${item.leg.minutes}</strong>　${item.leg.verdict}</span><a href="${item.leg.url}" target="_blank" rel="noreferrer">開路線 ↗</a></div>`;
+  const statusClass = item.leg.verdict === "順路" ? "is-on-route" : "is-detour";
+  return `<div class="transfer-row"><span class="transfer-kicker">下一段</span><div class="transfer-copy"><strong>${item.leg.label}</strong><span>${item.leg.minutes}<b class="route-status ${statusClass}">${item.leg.verdict === "順路" ? "✓ " : ""}${item.leg.verdict}</b></span></div><a href="${item.leg.url}" target="_blank" rel="noreferrer">Google 路線 ↗</a></div>`;
 }
 
 function renderDay(index) {
