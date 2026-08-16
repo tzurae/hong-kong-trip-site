@@ -6,7 +6,7 @@
     <meta name="theme-color" content="#f6f0e8" />
     <meta name="description" content="香港 2026 五日旅行行程：每日路線、時間、交通與雨天備案。" />
     <title>香港 2026 · 五日行程</title>
-    <link rel="stylesheet" href="styles.css?v=4" />
+    <link rel="stylesheet" href="styles.css?v=6" />
   </head>
   <body>
     <header class="topbar">
@@ -25,18 +25,6 @@
             <p class="hero-copy">不是景點清單，而是可以直接照著走的每日行程：上午、午餐、下午、晚餐、交通與天氣備案都放在同一張卡裡。</p>
             <a class="button button-dark hero-button" href="#trip">看每日行程 ↓</a>
           </div>
-          <aside class="weather-card">
-            <div class="card-label">今日行程模式 · 8/29</div>
-            <div class="weather-main"><span class="weather-icon">☀</span><strong id="mode-label">正常行程</strong></div>
-            <p id="mode-description">照標準路線：飲茶 → 深水埗 → M+ → 佐敦晚餐 → 天星小輪。</p>
-            <div class="mode-switcher" role="group" aria-label="天氣模式">
-              <button class="mode-button active" data-mode="normal" type="button">正常</button>
-              <button class="mode-button" data-mode="heat" type="button">太熱</button>
-              <button class="mode-button" data-mode="rain" type="button">下雨</button>
-              <button class="mode-button" data-mode="severe" type="button">惡劣天氣</button>
-            </div>
-            <p class="mode-note" id="mode-note">固定錨點：M+ 15:00。可調整的是戶外散步與晚餐順序。</p>
-          </aside>
         </div>
       </section>
 
@@ -49,16 +37,30 @@
           <button class="date-tab" data-day="3" type="button"><span>8/30</span><strong>北角 × 午餐</strong></button>
           <button class="date-tab" data-day="4" type="button"><span>8/31</span><strong>回台</strong></button>
         </div>
+        <aside class="weather-card agenda-mode-card" aria-label="行程模式">
+          <div class="mode-status">
+            <span class="weather-icon" aria-hidden="true">☀</span>
+            <div><span class="card-label">這一天怎麼走</span><strong id="mode-label">正常行程</strong></div>
+          </div>
+          <div class="mode-copy"><p id="mode-description">照順路版本走；每段交通時間都列在行程之間。</p><small id="mode-note">評分為 2026/8/16 查閱 Google Maps，之後可能變動。</small></div>
+          <div class="mode-switcher" role="group" aria-label="天氣模式">
+            <button class="mode-button active" data-mode="normal" type="button">正常</button>
+            <button class="mode-button" data-mode="heat" type="button">太熱</button>
+            <button class="mode-button" data-mode="rain" type="button">下雨</button>
+            <button class="mode-button" data-mode="severe" type="button">惡劣天氣</button>
+          </div>
+        </aside>
         <div class="agenda-summary" id="agenda-summary"></div>
         <div class="agenda-list" id="agenda-list"></div>
+        <p class="rating-disclaimer">Google Maps 評分與評論數查閱日：2026/8/16；店家營業時間、交通時間與評分都可能變動，點「地圖」看出發當下最新狀態。</p>
       </section>
 
       <section class="trip-rules section-shell" aria-labelledby="rules-heading">
         <div class="section-heading"><div><div class="eyebrow">HOW TO USE THIS PLAN</div><h2 id="rules-heading">三條現場規則</h2></div></div>
         <div class="rules-grid">
           <article><span>01</span><h3>有時間的才是固定</h3><p>航班、餐廳與 M+ 寫死時間；街區散步用區間，不需要一直追時鐘。</p></article>
-          <article><span>02</span><h3>排隊超過就換</h3><p>麥文記超過 30 分鐘、佳佳甜品超過 20 分鐘，直接用附近備案。</p></article>
-          <article><span>03</span><h3>Peak 看天氣再決定</h3><p>8/28 天氣好就上山；不好就把 Peak 移到 8/30 下午的 recovery slot。</p></article>
+          <article><span>02</span><h3>排隊超過就換</h3><p>任何名店超過 20–30 分鐘就用附近備案；不讓一頓飯把後面整段路線拖垮。</p></article>
+          <article><span>03</span><h3>Peak 不放進主線</h3><p>朋友提醒人潮非常消耗精神，所以山頂只留作 8/30 的 optional；不會為了打卡破壞整天節奏。</p></article>
         </div>
       </section>
 
@@ -74,6 +76,6 @@
     </main>
 
     <nav class="bottom-nav" aria-label="主要導覽"><a class="active" href="#today">首頁</a><a href="#trip">每日行程</a><a href="#info">住宿交通</a><a href="https://www.google.com/maps" target="_blank" rel="noreferrer">Maps ↗</a></nav>
-    <script src="app.js?v=4"></script>
+    <script src="app.js?v=6"></script>
   </body>
 </html>
