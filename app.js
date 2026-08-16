@@ -306,7 +306,7 @@ document.querySelectorAll(".mode-button").forEach((button) => button.addEventLis
 }));
 
 if (typeof navigator !== "undefined" && "serviceWorker" in navigator) {
-  navigator.serviceWorker.register("sw.js?v=11").catch(() => {});
+  navigator.serviceWorker.register("sw.js?v=12").catch(() => {});
 }
 
 renderDay(1);

@@ -1,6 +1,6 @@
-const STATIC_CACHE = "hk-trip-static-v11";
-const IMAGE_CACHE = "hk-trip-images-v11";
-const APP_SHELL = ["./", "./index.html", "./styles.css?v=11", "./app.js?v=11"];
+const STATIC_CACHE = "hk-trip-static-v12";
+const IMAGE_CACHE = "hk-trip-images-v12";
+const APP_SHELL = ["./", "./index.html", "./styles.css?v=12", "./app.js?v=12"];
 
 self.addEventListener("install", (event) => {
   event.waitUntil(caches.open(STATIC_CACHE).then((cache) => cache.addAll(APP_SHELL)));

@@ -228,7 +228,7 @@ a { color: inherit; }
   .stop-details { display: contents; }
   .stop-details .detail-toggle { grid-column: 2; grid-row: 1; }
   .stop-detail-panel { grid-column: 1 / -1; }
-  .stop-detail-panel { margin-left: -70px; padding: 14px; box-shadow: 0 12px 28px rgba(51, 41, 31, .1); }
+  .stop-detail-panel { width: calc(100vw - 38px); max-width: none; margin-left: -70px; padding: 14px; box-sizing: border-box; box-shadow: 0 12px 28px rgba(51, 41, 31, .1); }
   .stop-visual { display: block; }
   .stop-photo { aspect-ratio: 16 / 10; }
   .detail-info-grid, .review-grid { grid-template-columns: 1fr; }
