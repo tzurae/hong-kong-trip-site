@@ -6,8 +6,8 @@ interface TripSummaryTable {
   slug: string;
   title: string;
   destination: string;
-  start_date: string;
-  end_date: string;
+  start_date: ColumnType<Date, string, string>;
+  end_date: ColumnType<Date, string, string>;
   traveler_count: number;
   day_count: number;
   next_decision: string | null;

@@ -36,6 +36,8 @@ describe("PostgreSQL/PostGIS trip summary integration", () => {
       slug: "hong-kong-together",
       title: "一起走的香港四日",
       destination: "香港",
+      startDate: "2026-08-28",
+      endDate: "2026-08-31",
       travelerCount: 2,
       dayCount: 4,
       nextDecision: "一起選定第二天晚餐",

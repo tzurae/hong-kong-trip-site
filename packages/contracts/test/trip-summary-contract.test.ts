@@ -31,4 +31,22 @@ describe("trip summary wire contract", () => {
       }),
     ).toThrow("Invalid trip summary response");
   });
+
+  it("rejects timestamps where the wire contract requires a date-only value", () => {
+    expect(() =>
+      parseTripSummaryResponse({
+        trip: {
+          slug: "hong-kong-together",
+          title: "一起走的香港四日",
+          destination: "香港",
+          startDate: "2026-08-28T00:00:00.000Z",
+          endDate: "2026-08-31",
+          travelerCount: 2,
+          dayCount: 4,
+          nextDecision: null,
+          updatedAt: "2026-08-17T12:00:00.000Z",
+        },
+      }),
+    ).toThrow("Invalid trip summary response");
+  });
 });

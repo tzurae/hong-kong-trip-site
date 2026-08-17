@@ -32,6 +32,12 @@ function requiredCount(value: unknown) {
     : invalidResponse();
 }
 
+function requiredDateOnly(value: unknown) {
+  return typeof value === "string" && /^\d{4}-\d{2}-\d{2}$/.test(value)
+    ? value
+    : invalidResponse();
+}
+
 export function parseTripSummaryResponse(value: unknown): TripSummaryResponse {
   if (!isRecord(value) || !isRecord(value.trip)) {
     return invalidResponse();
@@ -48,8 +54,8 @@ export function parseTripSummaryResponse(value: unknown): TripSummaryResponse {
       slug: requiredString(trip.slug),
       title: requiredString(trip.title),
       destination: requiredString(trip.destination),
-      startDate: requiredString(trip.startDate),
-      endDate: requiredString(trip.endDate),
+      startDate: requiredDateOnly(trip.startDate),
+      endDate: requiredDateOnly(trip.endDate),
       travelerCount: requiredCount(trip.travelerCount),
       dayCount: requiredCount(trip.dayCount),
       nextDecision,
